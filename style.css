@@ -50,14 +50,31 @@ body {
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
-  color: #0077cc;
-}
-
+.nav-links a:hover,
 .nav-links a.active {
   color: #0077cc;
   font-weight: 700;
   border-bottom: 2px solid #0077cc;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
 }
 
 /* Hero */
@@ -115,7 +132,7 @@ body {
 
 /* Services */
 #services {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
 }
 
 .service-grid {
@@ -140,7 +157,7 @@ body {
 
 /* Articles */
 #articles {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
 }
 
 .resources-header {
@@ -203,7 +220,7 @@ body {
 
 /* Contact */
 #contact {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
 }
 
 .contact form {
