@@ -5,91 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClinicBridge</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      $('.carousel').slick({
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000
+      });
+    });
+  </script>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="navbar">
-      <a href="#home" class="logo">ClinicBridge</a>
-      <ul class="nav-links">
-        <li><a href="#treatments">Treatments</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">ClinicBridge</a>
+    <ul class="nav-links">
+      <li><a href="#services">Treatments</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#articles">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>One call for all pain management solutions</h1>
-      <p>Expert consultation tailored for <em>your</em> needs</p>
-      <a href="#contact" class="cta-button">Talk to us &rarr;</a>
+  <section class="hero">
+    <div class="hero-content animate__animated animate__fadeInDown">
+      <h1>Your Bridge to Better Injury Care</h1>
+      <p>Connecting patients with experienced personal injury specialists</p>
+      <a href="#contact" class="cta-button">Book a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <h2 class="animate__animated animate__fadeInUp">Our Treatments</h2>
+    <p>We provide access to trusted doctors specializing in injury care and rehabilitation.</p>
+    <div class="service-grid">
+      <div class="card animate__animated animate__zoomIn">Orthopedic Specialists</div>
+      <div class="card animate__animated animate__zoomIn">Neurological Assessment</div>
+      <div class="card animate__animated animate__zoomIn">Pain Management</div>
+      <div class="card animate__animated animate__zoomIn">Physical Therapy</div>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="section">
-    <h2>Here to Support You Every Step of the Way</h2>
-    <p>We help connect patients with pain management professionals for free — wherever you are.</p>
+    <h2 class="animate__animated animate__fadeIn">About ClinicBridge</h2>
+    <p>We streamline referrals between law firms and injury care doctors, ensuring your clients receive fast, effective treatment.</p>
   </section>
 
-  <!-- Services Section -->
-  <section id="treatments" class="section services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="card">Work Place Injury</div>
-      <div class="card">Personal Injury</div>
-      <div class="card">Auto Accident</div>
-      <div class="card">Slip &amp; Fall</div>
-      <div class="card">Pain Management</div>
-    </div>
-  </section>
-
-  <!-- Resources / Articles Section -->
-  <section id="resources" class="section resources">
+  <!-- Articles Section -->
+  <section id="articles" class="section">
     <div class="resources-header">
-      <h2>Health Insights and Tips</h2>
-      <a href="https://medium.com" class="learn-more" target="_blank">Learn More &rarr;</a>
+      <h2>Latest Articles</h2>
+      <a href="https://medium.com/@yourmediumhandle" class="learn-more" target="_blank">View All on Medium</a>
     </div>
     <div class="articles">
-      <a href="https://medium.com" class="article-card" target="_blank">
-        <img src="https://via.placeholder.com/300x200" alt="Post-Injury Rehab" />
-        <p>Recover Faster: Expert Tips for Post-Injury Rehabilitation</p>
+      <a href="https://medium.com/@yourmediumhandle/example-article" target="_blank" class="article-card">
+        <img src="https://via.placeholder.com/400x200" alt="Article Preview" />
+        <p>Why Timely Injury Treatment Matters After an Accident</p>
       </a>
-      <a href="https://medium.com" class="article-card" target="_blank">
-        <img src="https://via.placeholder.com/300x200" alt="Nerve Block" />
-        <p>Nerve Blocks Explained: Your Shortcut to Pain-Free Living</p>
-      </a>
-      <a href="https://medium.com" class="article-card" target="_blank">
-        <img src="https://via.placeholder.com/300x200" alt="RSI" />
-        <p>RSI Stopping You? Here's How to Bounce Back!</p>
-      </a>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback" class="section">
+    <h2>Doctor Testimonials</h2>
+    <div class="carousel">
+      <div class="card">
+        <p>"ClinicBridge has significantly improved our referral workflow. Patients now receive treatment faster and more efficiently."</p>
+        <strong>- Dr. Ayesha Tariq</strong>
+      </div>
+      <div class="card">
+        <p>"An essential tool for injury-focused practices. Seamless experience for both patients and physicians."</p>
+        <strong>- Dr. Kamran Mehmood</strong>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="section contact">
-    <h2>Let’s Talk</h2>
-    <p>Contact us today to get connected with a professional.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <textarea placeholder="Message"></textarea>
-      <button type="submit">Send</button>
+    <h2>Contact Us</h2>
+    <form action="https://formsubmit.co/referrals@clinicbridge.pro" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <div class="g-recaptcha" data-sitekey="6LcexngrAAAAAK1V2qBRM7ZUHR6sfImEHIXl2nvi"></div>
+      <button type="submit">Send Message</button>
     </form>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div style="margin-top: 2rem;">
+      <button style="padding: 0.5rem 1rem; margin-right: 1rem;">Email Us</button>
+      <button style="padding: 0.5rem 1rem;">Message on WhatsApp</button>
+    </div>
   </section>
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+  <!-- Newsletter Signup Section -->
+  <section class="section">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form>
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="email" placeholder="Your Email Address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p style="font-size: 0.9rem; margin-top: 1rem; color: #777;">Note: This is a sample form and does not store data.</p>
+  </section>
+
+  <!-- Scheduling Section -->
+  <section class="section">
+    <h2>Schedule an Appointment</h2>
+    <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarlink" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0077cc; color:white; padding:2rem; text-align:center;">
+    <p>&copy; 2025 ClinicBridge. All rights reserved.</p>
+    <p><a href="mailto:referrals@clinicbridge.pro" style="color:white; text-decoration:underline;">referrals@clinicbridge.pro</a></p>
+  </footer>
+
 </body>
 </html>
