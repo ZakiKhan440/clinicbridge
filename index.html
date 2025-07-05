@@ -8,133 +8,61 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-  <style>
-    :root {
-      --bg-light: #ffffff;
-      --bg-dark: #121212;
-      --text-light: #000000;
-      --text-dark: #ffffff;
-    }
-    [data-theme="dark"] {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
-    [data-theme="dark"] input,
-    [data-theme="dark"] textarea {
-      background-color: #1e1e1e;
-      color: #fff;
-      border-color: #444;
-    }
-    .dark-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 999;
-      padding: 0.5rem 1rem;
-      background: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #0077cc;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .logo {
-      font-size: 1.5rem;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    nav .nav-links a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-      @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .nav-links a {
-        margin: 0.5rem 0;
-      }
-    }
+  <style>$1</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    $('.carousel').slick({
+      dots: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
 
-    section {
-      padding: 2rem;
-    }
+    const toggle = document.getElementById('darkToggle');
+    toggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const newTheme = theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      toggle.innerText = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
 
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    form input, form textarea {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    form button {
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .nav-links a.active {
-      border-bottom: 2px solid white;
-    }
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js">      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-links a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 100;
-          if (pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-          }
-        });
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-          }
-        });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script>
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.section').forEach(section => {
+      section.classList.add('fade-in');
+      observer.observe(section);
+    });
+
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+>
     document.addEventListener('DOMContentLoaded', function () {
       $('.carousel').slick({
         dots: true,
