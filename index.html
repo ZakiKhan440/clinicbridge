@@ -46,6 +46,28 @@
       opacity: 1;
       transform: none;
     }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0077cc;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
   </style>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -61,8 +83,9 @@
       const toggle = document.getElementById('darkToggle');
       toggle.addEventListener('click', () => {
         const theme = document.documentElement.getAttribute('data-theme');
-        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
-        toggle.innerText = theme === 'dark' ? '🌙 Dark Mode' : '☀️ Light Mode';
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        toggle.innerText = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
       });
 
       const observer = new IntersectionObserver(entries => {
@@ -86,20 +109,22 @@
 
 <button id="darkToggle" class="dark-toggle">🌙 Dark Mode</button>
 
+<!-- Navigation -->
+<nav>
+  <a href="#hero" class="logo">ClinicBridge</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#privacy">Privacy</a>
+  </div>
+</nav>
+
 <!-- Hero Section -->
 <section class="section" id="hero">
   <h1>Welcome to ClinicBridge</h1>
   <p>Your trusted partner in personal injury referrals</p>
 </section>
-
-<!-- Navigation -->
-<nav class="section" id="navbar">
-  <a href="#hero">Home</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-  <a href="#newsletter">Newsletter</a>
-  <a href="#privacy">Privacy Policy</a>
-</nav>
 
 <!-- About Section -->
 <section class="section" id="about">
@@ -131,41 +156,22 @@
   <p style="font-size: 0.9rem; color: #777;">Note: This form does not store data.</p>
 </section>
 
-<!-- Privacy Policy Section -->
-<section class="section" id="privacy">
-  <h2>Privacy Policy</h2>
-  <p>At ClinicBridge, we value your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and protect your data when you use our website or services. We aim to be transparent and accountable in our data processing practices and ensure that your personal information is kept confidential and secure.</p>
+<!-- Medium Articles Section -->
+<section class="section" id="medium-articles">
+  <h2>Our Latest Articles</h2>
+  <iframe src="https://medium.com/@clinicbridge" width="100%" height="500" frameborder="0" style="border: none;"></iframe>
+</section>
 
-  <h3>Disclaimer</h3>
-  <p>By providing your phone number to ClinicBridge, you agree and acknowledge that ClinicBridge may send text messages or call your wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to opt out by replying “STOP.”</p>
-  <p><strong>Privacy Note:</strong> No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
-
-  <h3>Information Collection</h3>
-  <p>We may collect personal information such as your name, email address, phone number, and company details when you fill out a contact form or subscribe to our newsletter. We use this information to respond to your inquiries and provide you with updates and relevant materials.</p>
-  <p>We may also collect information through cookies and tracking technologies to analyze website usage. This includes data such as your IP address, browser type, device type, and the pages you visit on our website.</p>
-
-  <h3>Use of Information</h3>
-  <p>We use the information collected to communicate with you, provide our services, offer support, and improve our marketing and outreach. We do not sell or rent your personal information to third parties.</p>
-  <p>We may share your information with our trusted service providers and partners who help us operate and deliver services. These partners are required to comply with relevant data protection laws and maintain the confidentiality of your information.</p>
-
-  <h3>Data Protection</h3>
-  <p>We take the security of your personal information seriously. We use technical and organizational measures to safeguard your data from unauthorized access, disclosure, alteration, or destruction.</p>
-
-  <h3>Lead Generation</h3>
-  <p>We may use lead generation forms to collect personal details such as name, email, phone number, and company info. By submitting your details, you consent to receive marketing or informational communications from ClinicBridge.</p>
-  <p>You may unsubscribe from these communications at any time by clicking the “unsubscribe” link in our emails.</p>
-
-  <h3>Changes to This Privacy Policy</h3>
-  <p>We may update this privacy policy from time to time. We recommend reviewing this page periodically for any changes. By using our website, you agree to the terms outlined in this privacy policy.</p>
-
-  <h3>Contact Us</h3>
-  <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact us at: <a href="mailto:referrals@clinicbridge.pro">referrals@clinicbridge.pro</a></p>
+<!-- Google Calendar Embed Section -->
+<section class="section" id="calendar">
+  <h2>Schedule an Appointment</h2>
+  <iframe src="https://calendar.google.com/calendar/embed?src=c_1884d86e96d29c4cfce7f48bacee9cc099ba3a8a9d69d7f98c943760c4e9a6b6%40group.calendar.google.com&ctz=Asia%2FKarachi" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 </section>
 
 <!-- Footer -->
 <footer class="section" style="background:#0077cc; color:white; text-align:center; padding:1rem;">
   <p>&copy; 2025 ClinicBridge. All rights reserved.</p>
-  <a href="#privacy" style="color:white; text-decoration:underline;">Privacy Policy</a>
+  <a href="privacy.html" target="_blank" style="color:white; text-decoration:underline;">Privacy Policy</a>
 </footer>
 
 </body>
