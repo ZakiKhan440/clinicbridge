@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,96 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #0077cc;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+    .logo {
+      font-weight: bold;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .carousel .card {
+      padding: 1rem;
+      background: #f2f2f2;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    [data-theme="dark"] {
+      background: #121212;
+      color: #fff;
+    }
+    [data-theme="dark"] nav, [data-theme="dark"] footer {
+      background: #222;
+    }
+    [data-theme="dark"] .carousel .card {
+      background: #1f1f1f;
+      color: #eee;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background: #0077cc;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      .nav-links {
+        margin-top: 1rem;
+      }
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       $('.carousel').slick({
@@ -18,84 +108,77 @@
         autoplay: true,
         autoplaySpeed: 5000
       });
+      const toggle = document.getElementById('darkToggle');
+      toggle.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        toggle.innerText = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+      });
     });
   </script>
 </head>
 <body>
+  <button id="darkToggle" class="dark-toggle">🌙 Dark Mode</button>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#" class="logo">ClinicBridge</a>
-    <ul class="nav-links">
-      <li><a href="#services">Treatments</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#articles">Resources</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <nav>
+    <a href="#hero" class="logo">ClinicBridge</a>
+    <div class="nav-links">
+      <a href="#services">Treatments</a>
+      <a href="#about">About</a>
+      <a href="#articles">Resources</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content animate__animated animate__fadeInDown">
-      <h1>Your Bridge to Better Injury Care</h1>
-      <p>Connecting patients with experienced personal injury specialists</p>
-      <a href="#contact" class="cta-button">Book a Consultation</a>
-    </div>
+  <section class="section" id="hero">
+    <h1>Your Bridge to Better Injury Care</h1>
+    <p>Connecting patients with experienced personal injury specialists</p>
+    <a href="#contact" class="cta-button">Book a Consultation</a>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="section">
-    <h2 class="animate__animated animate__fadeInUp">Our Treatments</h2>
-    <p>We provide access to trusted doctors specializing in injury care and rehabilitation.</p>
+  <section class="section" id="services">
+    <h2>Our Treatments</h2>
     <div class="service-grid">
-      <div class="card animate__animated animate__zoomIn">Orthopedic Specialists</div>
-      <div class="card animate__animated animate__zoomIn">Neurological Assessment</div>
-      <div class="card animate__animated animate__zoomIn">Pain Management</div>
-      <div class="card animate__animated animate__zoomIn">Physical Therapy</div>
+      <div class="card">Orthopedic Specialists</div>
+      <div class="card">Neurological Assessment</div>
+      <div class="card">Pain Management</div>
+      <div class="card">Physical Therapy</div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2 class="animate__animated animate__fadeIn">About ClinicBridge</h2>
-    <p>We streamline referrals between law firms and injury care doctors, ensuring your clients receive fast, effective treatment.</p>
+  <section class="section" id="about">
+    <h2>About ClinicBridge</h2>
     <p>We facilitate coordination between law firms and injury care providers to help clients access prompt medical attention.</p>
   </section>
 
-  <!-- Articles Section -->
-  <section id="articles" class="section">
-    <div class="resources-header">
-      <h2>Latest Articles</h2>
-      <a href="https://medium.com/@yourmediumhandle" class="learn-more" target="_blank">View All on Medium</a>
-    </div>
+  <section class="section" id="articles">
+    <h2>Latest Articles</h2>
+    <a href="https://medium.com/@clinicbridge" target="_blank">View All on Medium</a>
     <div class="articles">
-      <a href="https://medium.com/@yourmediumhandle/example-article" target="_blank" class="article-card">
+      <a href="https://medium.com/@clinicbridge/example-article" target="_blank" class="article-card">
         <img src="https://via.placeholder.com/400x200" alt="Article Preview" />
         <p>Why Timely Injury Treatment Matters After an Accident</p>
       </a>
     </div>
   </section>
 
-  <!-- Feedback Section -->
-  <section id="feedback" class="section">
+  <section class="section" id="feedback">
     <h2>Doctor Testimonials</h2>
     <div class="carousel">
       <div class="card">
         <p>"ClinicBridge has significantly improved our referral workflow. Patients now receive treatment faster and more efficiently."</p>
         <strong>- Dr. Ayesha Tariq</strong>
-        <strong>- Dr. A. Tariq</strong>
       </div>
       <div class="card">
         <p>"An essential tool for injury-focused practices. Seamless experience for both patients and physicians."</p>
         <strong>- Dr. Kamran Mehmood</strong>
-        <p>"An essential tool for injury-focused practices. Seamless experience for both patients and physicians. Love working with the team."</p>
-        <strong>- Dr. Kwame Mehmood</strong>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
+  <section class="section" id="contact">
     <h2>Contact Us</h2>
     <form action="https://formsubmit.co/referrals@clinicbridge.pro" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -106,34 +189,30 @@
     </form>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div style="margin-top: 2rem;">
-      <button style="padding: 0.5rem 1rem; margin-right: 1rem;">Email Us</button>
-      <button style="padding: 0.5rem 1rem;">Message on WhatsApp</button>
+      <button>Email Us</button>
+      <button>Message on WhatsApp</button>
     </div>
   </section>
 
-  <!-- Newsletter Signup Section -->
-  <section class="section">
+  <section class="section" id="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
     <form>
       <input type="text" placeholder="Your Full Name" required />
       <input type="email" placeholder="Your Email Address" required />
+      <textarea placeholder="Any comments or suggestions"></textarea>
       <button type="submit">Subscribe</button>
     </form>
-    <p style="font-size: 0.9rem; margin-top: 1rem; color: #777;">Note: This is a sample form and does not store data.</p>
-    <p style="font-size: 0.9rem; margin-top: 1rem; color: #777;"></p>
+    <p style="font-size: 0.9rem; color: #777;">Note: This is a sample form and does not store data.</p>
   </section>
 
-  <!-- Scheduling Section -->
-  <section class="section">
+  <section class="section" id="calendar">
     <h2>Schedule an Appointment</h2>
-    <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarlink" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?src=c_1884d86e96d29c4cfce7f48bacee9cc099ba3a8a9d69d7f98c943760c4e9a6b6%40group.calendar.google.com&ctz=Asia%2FKarachi" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
   </section>
 
-  <!-- Footer -->
-  <footer style="background:#0077cc; color:white; padding:2rem; text-align:center;">
+  <footer class="section" style="background:#0077cc; color:white; text-align:center; padding:1rem;">
     <p>&copy; 2025 ClinicBridge. All rights reserved.</p>
-    <p><a href="mailto:referrals@clinicbridge.pro" style="color:white; text-decoration:underline;">referrals@clinicbridge.pro</a></p>
+    <a href="privacy.html" target="_blank">Privacy Policy</a>
   </footer>
-
 </body>
 </html>
