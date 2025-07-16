@@ -182,23 +182,25 @@
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formsubmit.co/referrals@clinicbridge.pro" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <div class="g-recaptcha" data-sitekey="6LcexngrAAAAAK1V2qBRM7ZUHR6sfImEHIXl2nvi"></div>
-      <button type="submit">Send Message</button>
-    </form>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <div style="margin-top: 2rem;">
-      <button>Email Us</button>
-      <button>Message on WhatsApp</button>
-    </div>
-  </section>
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="max-width: 400px; margin: auto;">
+  <label for="name">Full Name</label><br />
+  <input type="text" name="name" required /><br /><br />
 
-  <section class="section" id="newsletter">
+  <label for="phone">Phone Number</label><br />
+  <input type="tel" name="phone" required /><br /><br />
+
+  <label for="email">Email</label><br />
+  <input type="email" name="email" required /><br /><br />
+
+  <label>
+    <input type="checkbox" name="consent" required />
+    I agree to be contacted by ClinicBridge regarding this inquiry/referral.
+  </label><br /><br />
+
+  <button type="submit">Submit</button>
+</form>
+
+   <section class="section" id="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
     <form>
       <input type="text" placeholder="Your Full Name" required />
